@@ -2,17 +2,18 @@
 {
     internal class Map
     {
-        public readonly int Height;
-        public readonly int Width;
+        public int Height;
+        public int Width;
+        //private readonly Cell[,] Cells;
         public readonly Cell[,] Cells;
 
         public Map(int width, int height)
         {
-            Width = width;
-            Height = height;
+            this.Width = width;
+            this.Height = height;
 
-            Cells = new Cell[width, height];
-            for (int x = 0; x < width; x++)
+            Cells = new Cell[width, height]; //6 
+            for (int x = 0; x < width; x++) //7
             {
                 for (int y = 0; y < height; y++)
                 {

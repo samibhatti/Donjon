@@ -1,16 +1,20 @@
-﻿using System;
+﻿using Donjon.Lib;
+using System;
 
 namespace Donjon
 {
-    internal class Hero : Creature
+    internal class Hero : Creature //4 a inheritance added
     {
         public int Health { get; set; }
+
         public int X { get; set; }
         public int Y { get; set; }
 
         public int Damage { get; } = 10;
 
-        public Hero(int health) : base("H")
+        public LimitedList<Item> Backpack { get; } = new LimitedList<Item>(8); // a1
+
+        public Hero(int health) : base("H") //b changed
         {
             Health = health;
             Color = ConsoleColor.White;
@@ -29,5 +33,10 @@ namespace Donjon
             }
         }
 
+        public bool Pickup(Item item) => Backpack.Add(item);
+        /*public bool Pickup(Item item)
+        {
+            return Backpack.Add(item);
+        }*/
     }
 }
